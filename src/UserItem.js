@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { deleteUser } from './logic'
+
 import userPlaceholder from './user.svg'
 
 const styles = {
@@ -28,10 +30,16 @@ const UserItem = (props) => (
         </div>
         <div>
             {props.user.name}
-            {props.user.email}
+            <div>
+                {props.user.email}
+            </div>
         </div>
         <div>
-            <button>X</button>
+            <button
+                onClick={() => deleteUser(props.user.uuid)}
+            >
+                X
+            </button>
         </div>
     </div >
 )
