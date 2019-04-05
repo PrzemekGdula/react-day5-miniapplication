@@ -14,6 +14,9 @@ class AddUser extends React.Component {
     })
 
     addClickHandler = () => {
+        if (!this.state.name) return
+        if (!this.state.email) return
+
         const user = new User(this.state.name, this.state.email, this.state.avatar)
 
         saveUser(user)
