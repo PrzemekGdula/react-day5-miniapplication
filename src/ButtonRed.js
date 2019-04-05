@@ -2,7 +2,7 @@ import React from 'react'
 
 const ButtonRed = (props) => (
   <div
-    className={'jfddl7-button jfddl7-button--red'}
+    className={'jfddl7-button'}
   >
     ButtonRed
   </div>
