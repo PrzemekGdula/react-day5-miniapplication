@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { User, saveUser } from './logic'
+
 class AddUser extends React.Component {
     state = {
         name: '',
@@ -7,28 +9,40 @@ class AddUser extends React.Component {
         avatar: '',
     }
 
-    inputChangeHandler = (event, statePropName) => this.setState({
+    inputChangeHandler = (statePropName) => (event) => this.setState({
         [statePropName]: event.target.value
     })
+
+    addClickHandler = () => {
+        const user = new User(this.state.name, this.state.email, this.state.avatar)
+
+        saveUser(user)
+    }
 
     render() {
         return (
             <div>
                 <input
+                    placeholder={'Wpisz imie'}
                     value={this.state.name}
-                    onChange={(event) => this.inputChangeHandler(event, 'name')}
+                    onChange={this.inputChangeHandler('name')}
                 />
                 <input
+                    placeholder={'Wpisz email'}
                     value={this.state.email}
-                    onChange={(event) => this.inputChangeHandler(event, 'email')}
+                    onChange={this.inputChangeHandler('email')}
                 />
                 <input
+                    placeholder={'Dodaj zdjecie'}
                     value={this.state.avatar}
-                    onChange={(event) => this.inputChangeHandler(event, 'avatar')}
+                    onChange={this.inputChangeHandler('avatar')}
                 />
                 <button
-                    onClick={() => { }}
-                />
+                    onClick={this.addClickHandler}
+
+                >
+                    Dodaj
+                </button>
             </div>
         )
     }
