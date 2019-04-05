@@ -1,3 +1,5 @@
+import uuidv1 from 'uuid/v1'
+
 const LOCAL_STORAGE_KEY = 'jfddl7-users'
 
 class User {
@@ -5,6 +7,7 @@ class User {
         this.name = name
         this.email = email
         this.avatar = avatar
+        this.uuid = uuidv1()
     }
 }
 
@@ -21,12 +24,17 @@ const saveUser = (user) => {
     )
 }
 
+const deleteUser = (uuid) => {
+    const currentUsers = loadUsers()
 
-saveUser(
-    new User('Mateusz', 'a@example.com')
-)
-saveUser(
-    new User('Mateusz', 'a@example.com')
-)
+    const newUsers = currentUsers.filter((user) => user.uuid !== uuid)
 
-console.log(loadUsers())
+    localStorage.setItem(
+        LOCAL_STORAGE_KEY,
+        JSON.stringify(newUsers)
+    )
+}
+
+saveUser(new User('Ala', 'a@a.pl'))
+
+window.deleteUser = deleteUser
