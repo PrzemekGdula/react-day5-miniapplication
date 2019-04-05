@@ -1,13 +1,34 @@
 import React from 'react'
-
+import { withStyles } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 
-const MUIButton = (props) => (
-    <div>
-        <Button>
-            MUIButton
-        </Button>
-    </div>
-)
+const styles = {
+    button: {
+        margin: 20
+    },
+    green: {
+        backgroundColor: 'green'
+    }
+}
 
-export default MUIButton
+const MUIButton = (props) => {
+    const { classes } = props
+    return (
+        <div>
+            <Button
+                className={classes.button + ' ' + classes.green}
+                variant={'contained'}
+            >
+                MUIButton
+        </Button>
+            <Button
+                className={classes.button}
+                variant={'contained'}
+            >
+                MUIButton
+        </Button>
+        </div>
+    )
+}
+export default withStyles(styles)(MUIButton)
+
