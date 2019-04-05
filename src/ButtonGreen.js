@@ -1,9 +1,10 @@
 import React from 'react'
-import style from './ButtonGreen.module.css'
+import {buttonGreen} from './ButtonGreen.module.css'
+import {button} from './Buttons.module.css'
 
 const ButtonGreen = (props) => (
     <div
-        className={style.jfddl7Button}
+        className={button + ' ' + buttonGreen}
     >
         ButtonGreen
     </div>
