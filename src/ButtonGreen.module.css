@@ -1,4 +1,4 @@
-.jfddl7-button {
+.jfddl7Button {
     padding: 20px;
     margin: 20px;
     border: 1px solid black;
@@ -8,4 +8,7 @@
     background-color: green;
 }
 
+.otherClass{
+    text-align: center;
+}
 
